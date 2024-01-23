@@ -1,0 +1,32 @@
+steps:
+  # Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-east1-docker.pkg.dev/apt-theme-402300/repo-docker/dataflow-cdc', '.']
+    dir: 'src'
+  # Push the Docker image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-east1-docker.pkg.dev/apt-theme-402300/repo-docker/dataflow-cdc']
+  # Build Template to Use for Dataflow Job
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'dataflow'
+      - 'flex-template'
+      - 'build'
+      - 'gs://data-flow-files-breno-account/templates/dataflow-cdc-stream.json'
+      - '--image-gcr-path=us-east1-docker.pkg.dev/apt-theme-402300/repo-docker/dataflow-cdc:latest'
+      - '--sdk-language=PYTHON'
+      - '--flex-template-base-image=PYTHON3'
+      - '--metadata-file=metadata.json'
+    dir: 'src'
+  # Executing Terraform Script
+  - name: 'gcr.io/cloud-builders/terraform'
+    args: ['init']
+    dir: 'build/stream'
+  - name: 'gcr.io/cloud-builders/terraform'
+    args: ['plan']
+    dir: 'build/stream'
+  - name: 'gcr.io/cloud-builders/terraform'
+    args: ['apply', '-auto-approve' ]
+    dir: 'build/stream'
+options:
+  logging: CLOUD_LOGGING_ONLY

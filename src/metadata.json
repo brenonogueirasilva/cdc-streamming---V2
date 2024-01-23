@@ -1,0 +1,62 @@
+{
+  "name": "Streaming beam Python flex template",
+  "description": "Streaming beam example for python flex template.",
+  "parameters": [
+    {
+      "name": "pubsub_topic",
+      "label": "PubSub Topic",
+      "helpText": "Name of the PubSub topic to consume from.",
+      "regexes": [],
+      "is_optional": false
+    },
+    {
+      "name": "region",
+      "label": "Region",
+      "helpText": "Region where the Dataflow job will be executed.",
+      "regexes": [],
+      "is_optional": false
+    },
+    {
+      "name": "staging_location",
+      "label": "Staging Location",
+      "helpText": "Location for staging temporary files.",
+      "regexes": [],
+      "is_optional": false
+    },
+    {
+      "name": "temp_location",
+      "label": "Temporary Location",
+      "helpText": "Temporary location for Dataflow job.",
+      "regexes": [],
+      "is_optional": false
+    },
+    {
+      "name": "temp_fold_script",
+      "label": "Temporary Folder Script",
+      "helpText": "Temporary folder for additional scripts.",
+      "regexes": [],
+      "is_optional": false
+    },
+    {
+      "name": "project_id",
+      "label": "Project ID",
+      "helpText": "Google Cloud Project ID.",
+      "regexes": [],
+      "is_optional": false
+    },
+    {
+      "name": "bucket_name_schema",
+      "label": "Bucket Name Schema",
+      "helpText": "Name of the bucket for schema storage.",
+      "regexes": [],
+      "is_optional": false
+    },
+    {
+      "name": "source_schema_path",
+      "label": "Source Schema Path",
+      "helpText": "Path to the source schema.",
+      "regexes": [],
+      "is_optional": false
+    }
+  ]
+}

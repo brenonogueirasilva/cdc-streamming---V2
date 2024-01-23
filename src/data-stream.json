@@ -1,0 +1,36 @@
+{
+    "olist_produtos":
+    {
+        "table_name" : "apt-theme-402300.teste.produtos_cdc",
+        "schema" : {
+            "fields":    [
+            {"name": "product_id", "type": "STRING"},
+            {"name": "product_category_name", "type": "STRING"},
+            {"name": "product_name_lenght", "type": "FLOAT"},
+            {"name": "product_description_lenght", "type": "FLOAT"},
+            {"name": "product_photos_qty", "type": "INT64"},
+            {"name": "product_weight_g", "type": "FLOAT"},
+            {"name": "product_length_cm", "type": "FLOAT"},
+            {"name": "product_height_cm", "type": "FLOAT"},
+            {"name": "product_width_cm", "type": "FLOAT"},
+            {"name": "action", "type": "STRING"},
+            {"name": "update_date", "type": "STRING"}
+            ]
+        }
+    },
+
+    "olist_users" : {
+        "table_name" : "apt-theme-402300.teste.users_cd",
+        "schema" : {
+            "fields":    [
+            {"name": "first_name", "type": "STRING"},
+            {"name": "last_name", "type": "STRING"},
+            {"name": "email", "type": "STRING"},
+            {"name": "password", "type": "STRING"},
+            {"name": "action", "type": "STRING"},
+            {"name": "update_date", "type": "TIMESTAMP"}
+            ]
+        }
+    }
+
+}
